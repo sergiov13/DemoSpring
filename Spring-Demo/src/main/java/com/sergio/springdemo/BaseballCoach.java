@@ -23,4 +23,6 @@ public class BaseballCoach implements Coach{
 	}
 	
 	//Test
+	
+	//Test2
 }

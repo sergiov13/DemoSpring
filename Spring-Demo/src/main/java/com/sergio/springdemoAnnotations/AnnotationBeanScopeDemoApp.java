@@ -2,22 +2,28 @@ package com.sergio.springdemoAnnotations;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class AnnotationDemoApp {
+public class AnnotationBeanScopeDemoApp {
 
 	public static void main(String[] args) {
-		
-		// read spring config file
+	
+		//read config file
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContextAnnotation.xml");
+		
 		//get the bean from spring container
 		Coach theCoach = context.getBean("tennisCoach", Coach.class);
-		//call method on the bean
-		System.out.println(theCoach.getDailyWorkout());
 		
-		//call method to get fortune
-		System.out.println(theCoach.getDailyFortune());
+		Coach alphaCoach = context.getBean("tennisCoach", Coach.class);
+		
+		//call method on the bean
+		boolean result = (theCoach == alphaCoach);
+		
+		System.out.println("\npointing to the same object = " + result);
+		System.out.println("the coach Memory location:" + theCoach);
+		System.out.println("the coach Memory location:" + alphaCoach);
 		
 		//close bean
 		context.close();
+
 	}
 
 }

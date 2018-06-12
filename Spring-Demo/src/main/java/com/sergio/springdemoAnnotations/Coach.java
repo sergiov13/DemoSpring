@@ -1,5 +1,6 @@
- package com.sergio.springdemoAnnotations;
+package com.sergio.springdemoAnnotations;
 
+//Test
 public interface Coach {
 
 	public String getDailyWorkout();
